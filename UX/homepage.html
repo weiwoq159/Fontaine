@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fontaine — Local Agent Portal</title>
+    <style>
+      /* 1. 设计 Token (Design Tokens) 
+      遵循浅色主题硬性要求，收口统一的颜色与尺寸变量。
+    */
+      :root {
+        --bg-base: #f8fafc;
+        --bg-container: #ffffff;
+        --bg-elevated: #ffffff;
+
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --text-tertiary: #94a3b8;
+
+        --brand-blue: #0284c7; /* Fontaine 核心视觉色 */
+        --brand-gold: #d97706; /* 强交互/Agent 提示色 */
+
+        --border-color: #e2e8f0;
+        --border-radius-lg: 16px;
+        --border-radius-md: 8px;
+
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        --shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+
+        --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--bg-base);
+        color: var(--text-primary);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* 2. 顶部拖拽栏 (Tauri Window Controls 占位)
+      对应 Brief: 套件级顶栏与品牌展示
+    */
+      .titlebar {
+        height: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px;
+        background-color: var(--bg-container);
+        border-bottom: 1px solid var(--border-color);
+        /* Tauri 拖拽属性 */
+        -webkit-app-region: drag;
+        user-select: none;
+      }
+
+      .brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: var(--brand-blue);
+      }
+
+      .brand-logo img {
+        width: 24px;
+        height: 24px;
+        /* 遵循素材统一入文件夹原则 */
+        /* 占位: src="assets/fontaine-logo.svg" */
+        background: var(--brand-blue);
+        border-radius: 4px;
+        -webkit-app-region: no-drag;
+      }
+
+      .titlebar-actions {
+        display: flex;
+        gap: 16px;
+        color: var(--text-tertiary);
+        -webkit-app-region: no-drag;
+      }
+
+      /* 3. 主内容区
+    */
+      .main-layout {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        position: relative;
+      }
+
+      .foyer-header {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .foyer-header h1 {
+        margin: 0 0 12px 0;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+      }
+
+      .foyer-header p {
+        margin: 0;
+        font-size: 16px;
+        color: var(--text-secondary);
+      }
+
+      /* 4. 产品选择卡片 (Launcher Core)
+    */
+      .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        width: 100%;
+        max-width: 900px;
+        margin-bottom: 64px;
+      }
+
+      .product-card {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius-lg);
+        padding: 32px;
+        cursor: pointer;
+        transition: var(--transition-base);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--brand-blue);
+      }
+
+      .card-icon-wrapper {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--bg-base);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        border: 1px solid var(--border-color);
+      }
+
+      /* 模拟引用 assets 文件夹中的图标 */
+      .icon-placeholder {
+        width: 24px;
+        height: 24px;
+        background-color: var(--brand-blue);
+        mask: url("assets/placeholder-icon.svg") no-repeat center / contain;
+        -webkit-mask: url("assets/placeholder-icon.svg") no-repeat center / contain;
+        border-radius: 50%;
+      }
+
+      .product-info h2 {
+        margin: 0 0 8px 0;
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .module-tag {
+        font-size: 12px;
+        padding: 2px 8px;
+        background: var(--bg-base);
+        color: var(--text-secondary);
+        border-radius: 4px;
+        border: 1px solid var(--border-color);
+        font-weight: normal;
+      }
+
+      .product-info p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      /* 5. 全局 Agent 入口
+      对应 Brief: 一个常驻的 agent 命令栏 / 终端
+    */
+      .global-agent-dock {
+        width: 100%;
+        max-width: 680px;
+        background: var(--bg-container);
+        border: 1px solid var(--border-color);
+        border-radius: 24px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-base);
+      }
+
+      .global-agent-dock:focus-within {
+        border-color: var(--brand-gold);
+        box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+      }
+
+      .agent-spark-icon {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--brand-gold);
+        font-size: 18px;
+      }
+
+      .agent-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 8px 12px;
+        font-size: 15px;
+        color: var(--text-primary);
+      }
+
+      .agent-input::placeholder {
+        color: var(--text-tertiary);
+      }
+
+      .agent-shortcut {
+        font-size: 12px;
+        color: var(--text-tertiary);
+        background: var(--bg-base);
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+        margin-left: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="titlebar">
+      <div class="brand-logo">
+        <img src="assets/fontaine-logo.svg" alt="Logo" onerror="this.style.opacity = '0.5'" />
+        Fontaine
+        <span style="color: var(--text-tertiary); font-weight: normal; font-size: 13px"
+          >| 门厅 Foyer</span
+        >
+      </div>
+      <div class="titlebar-actions">
+        <span style="cursor: pointer">—</span>
+        <span style="cursor: pointer">□</span>
+        <span style="cursor: pointer">×</span>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <div class="foyer-header">
+        <h1>Welcome to Fontaine</h1>
+        <p>Select a workspace or summon the local agent.</p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="card-icon-wrapper">
+            <img
+              src="assets/opera-icon.svg"
+              alt="Opera"
+              class="icon-placeholder"
+              onerror="this.style.opacity = '0.2'"
+            />
+          </div>
+          <div class="product-info">
+            <h2>
+              欧庇克莱歌剧院
+              <span class="module-tag">roleplay</span>
+            </h2>
+            <p>云端 LLM 角色对话体验。支持本地世界书、预设管理与绝对安全的密钥隔离架构。</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-icon-wrapper">
+            <img
+              src="assets/salon-icon.svg"
+              alt="Salon"
+              class="icon-placeholder"
+              onerror="this.style.opacity = '0.2'"
+            />
+          </div>
+          <div class="product-info">
+            <h2>
+              孤心沙龙
+              <span class="module-tag">workshop</span>
+            </h2>
+            <p>本地 Python 工具与 Agent 工作台。管理任务队列、流式进度及自动化资源处理脚本。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="global-agent-dock">
+        <div class="agent-spark-icon">✨</div>
+        <input
+          type="text"
+          class="agent-input"
+          placeholder="唤醒 Agent，例如：'运行图片压缩工具' 或 '整理当前工作目录'..."
+        />
+        <div class="agent-shortcut">Ctrl + K</div>
+      </div>
+    </main>
+  </body>
+</html>

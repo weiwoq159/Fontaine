@@ -7,10 +7,20 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build output
 dist
 dist-ssr
 *.local
+
+# Tauri / Rust build output
+src-tauri/target/
+src-tauri/.tauri/
+
+# Rust temporary backup files
+**/*.rs.bk
 
 # Editor directories and files
 .vscode/*
@@ -22,3 +32,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+node_modules
+dist
+dist-ssr
+src-tauri/target
+src-tauri/.tauri
