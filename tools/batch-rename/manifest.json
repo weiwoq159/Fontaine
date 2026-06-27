@@ -1,0 +1,21 @@
+{
+  "appKey": "batch-rename",
+  "name": "批量文件重命名",
+  "description": "按规则批量重命名文件，支持前缀、后缀、序号、关键词替换和预览确认。",
+  "categoryKey": "file-processing",
+  "iconKey": "rename",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/batch-rename",
+  "tags": [
+    "filesystem",
+    "rename",
+    "batch"
+  ],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": false
+  }
+}

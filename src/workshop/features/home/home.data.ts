@@ -1,4 +1,4 @@
-import type { HeroSummaryStatus } from "./home.type";
+import type { HeroSummaryStatus } from "./home.types";
 
 export const heroSummaryStatusColorMap: Record<HeroSummaryStatus, string> = {
   ready: "green",

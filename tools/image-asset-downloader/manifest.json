@@ -1,0 +1,17 @@
+{
+  "appKey": "image-asset-downloader",
+  "name": "图片素材下载器",
+  "description": "根据页面链接或图片地址批量下载图片素材，并按来源自动整理目录。",
+  "categoryKey": "resource-collection",
+  "iconKey": "download",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/image-asset-downloader",
+  "tags": ["image", "download", "asset"],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": true
+  }
+}

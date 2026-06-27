@@ -1,0 +1,22 @@
+{
+  "appKey": "yanyun-lock-macro",
+  "name": "燕云刷锁宏",
+  "description": "用于承载燕云刷锁流程的游戏宏工具。当前仅提供工具骨架，待配置具体按键、坐标与循环条件后启用。",
+  "categoryKey": "game-macro",
+  "iconKey": "game",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/yanyun-lock-macro",
+  "tags": [
+    "游戏",
+    "宏",
+    "燕云十六声",
+    "黑石锁"
+  ],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "appKey": "image-resizer",
+  "name": "图片尺寸转换器",
+  "description": "批量调整图片尺寸，支持固定宽高、等比缩放和多尺寸导出。",
+  "categoryKey": "image-processing",
+  "iconKey": "resize",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/image-resizer",
+  "tags": ["image", "resize", "batch"],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": true
+  }
+}

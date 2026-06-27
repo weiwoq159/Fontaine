@@ -1,6 +1,6 @@
 import { Card, Col, Row } from "antd";
 
-import type { StatItem, DashboardMetricStats } from "@workshop/features/home/home.type";
+import type { StatItem, DashboardMetricStats } from "@workshop/features/home/home.types";
 import { formatResourceCount } from "@workshop/features/home/home.format";
 
 import styles from "./home-stats.module.scss";

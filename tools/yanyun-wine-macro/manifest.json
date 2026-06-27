@@ -1,0 +1,17 @@
+{
+  "appKey": "yanyun-wine-macro",
+  "name": "燕云刷酒宏",
+  "description": "用于承载燕云刷酒流程的游戏宏工具。当前仅提供工具骨架，待配置具体按键、坐标与循环条件后启用。",
+  "categoryKey": "game-macro",
+  "iconKey": "game",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/yanyun-wine-macro",
+  "tags": ["游戏", "宏", "燕云十六声", "猴儿酒"],
+  "agent": {
+    "enabled": false
+  },
+  "queue": {
+    "enabled": false
+  }
+}

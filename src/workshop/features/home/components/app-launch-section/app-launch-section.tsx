@@ -1,7 +1,7 @@
 import { Button, Card, Col, Row, Typography } from "antd";
 
 import { Icon } from "@core/ui/Icon";
-import type { DashboardTool } from "../../home.types";
+import type { DashboardTool } from "@workshop/features/home/home.types";
 import styles from "./app-launch-section.module.scss";
 
 interface AppLaunchSectionProps {
@@ -15,9 +15,9 @@ export function AppLaunchSection({ items }: AppLaunchSectionProps) {
     <Card className={styles.sectionCard} styles={{ body: { padding: 0 } }} variant="borderless">
       <div className={styles.sectionHead}>
         <div>
-          <span className={styles.sectionTitle} level={2} style={{ margin: 0 }}>
+          <h2 className={styles.sectionTitle} style={{ margin: 0 }}>
             应用启动区
-          </span>
+          </h2>
           <Typography.Paragraph className={styles.sectionDesc} style={{ margin: 0 }}>
             常用应用、Agent 可调用工具和本地插件统一放在这里。
           </Typography.Paragraph>

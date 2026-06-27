@@ -1,7 +1,8 @@
 import { Button, Card, Tag, Typography } from "antd";
 import { useNavigate } from "react-router";
 
-import type { DashboardOverviewStats, HeroSummaryItem } from "@workshop/features/home/home.type";
+import type { HeroSummaryItem } from "@workshop/features/home/home.types";
+import type { DashboardOverviewStats } from "@core/domain";
 import {
   heroSummaryStatusColorMap,
   heroSummaryStatusLabelMap,

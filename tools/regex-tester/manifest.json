@@ -1,0 +1,17 @@
+{
+  "appKey": "regex-tester",
+  "name": "正则表达式测试器",
+  "description": "输入正则和测试文本，实时查看匹配结果、捕获分组和替换效果。",
+  "categoryKey": "dev-debug",
+  "iconKey": "bug",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/regex-tester",
+  "tags": ["regex", "debug", "developer"],
+  "agent": {
+    "enabled": false
+  },
+  "queue": {
+    "enabled": false
+  }
+}

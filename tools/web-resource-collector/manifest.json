@@ -1,0 +1,17 @@
+{
+  "appKey": "web-resource-collector",
+  "name": "网页资源采集器",
+  "description": "从指定网页采集标题、正文、链接和图片资源，用于资料整理和内容归档。",
+  "categoryKey": "resource-collection",
+  "iconKey": "global",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/web-resource-collector",
+  "tags": ["web", "collector", "resource"],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": true
+  }
+}

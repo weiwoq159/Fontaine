@@ -1,0 +1,17 @@
+{
+  "appKey": "directory-structure",
+  "name": "目录结构生成器",
+  "description": "根据指定根路径生成目录树。",
+  "categoryKey": "file-processing",
+  "iconKey": "file",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/directory-structure",
+  "tags": ["文件系统", "目录树"],
+  "agent": {
+    "enabled": true
+  },
+  "queue": {
+    "enabled": false
+  }
+}

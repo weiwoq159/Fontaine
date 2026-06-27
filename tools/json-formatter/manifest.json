@@ -1,0 +1,17 @@
+{
+  "appKey": "json-formatter",
+  "name": "JSON 格式化工具",
+  "description": "格式化、压缩和校验 JSON 内容，帮助快速检查接口返回和配置文件。",
+  "categoryKey": "dev-debug",
+  "iconKey": "code",
+  "entry": "main.py",
+  "status": "available",
+  "link": "/workshop/catalog/json-formatter",
+  "tags": ["json", "formatter", "dev"],
+  "agent": {
+    "enabled": false
+  },
+  "queue": {
+    "enabled": false
+  }
+}
