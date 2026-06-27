@@ -23,7 +23,8 @@
     "paths": {
       "@core/*": ["./src/core/*"],
       "@launcher/*": ["./src/launcher/*"],
-      "@workshop/*": ["./src/workshop/*"]
+      "@workshop/*": ["./src/workshop/*"],
+      "@assets/*": ["./src/assets/*"]
     }
   },
   "include": ["src"]

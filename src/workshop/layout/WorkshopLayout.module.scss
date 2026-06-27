@@ -1,0 +1,67 @@
+.layout {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% -10%, rgba(147, 197, 253, 0.36), transparent 34%),
+    radial-gradient(circle at 90% 8%, rgba(165, 180, 252, 0.28), transparent 33%),
+    radial-gradient(circle at 76% 90%, rgba(34, 211, 238, 0.14), transparent 25%),
+    linear-gradient(135deg, #f4f8ff 0%, #edf7ff 48%, #f8f5ff 100%);
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    opacity: 0.36;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(125, 156, 199, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125, 156, 199, 0.1) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(circle at center, black 0, transparent 78%);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    right: -280px;
+    bottom: -330px;
+    width: 840px;
+    height: 840px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 63%);
+    filter: blur(18px);
+    pointer-events: none;
+    content: "";
+  }
+}
+
+.workspace {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+  background: transparent;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  background: transparent;
+}
+.content {
+  height: 100%;
+  padding: 24px 24px 28px;
+  overflow: auto;
+  background: transparent;
+  background:
+    radial-gradient(circle at 8% -10%, rgba(147, 197, 253, 0.36), transparent 34%),
+    radial-gradient(circle at 90% 8%, rgba(165, 180, 252, 0.28), transparent 33%),
+    radial-gradient(circle at 76% 90%, rgba(34, 211, 238, 0.14), transparent 25%),
+    linear-gradient(135deg, #f4f8ff 0%, #edf7ff 48%, #f8f5ff 100%);
+}

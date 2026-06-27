@@ -1,0 +1,15 @@
+.container {
+  background: #f4f8ff;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+}
+.content {
+  width: min(1440px, 100%);
+  min-height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+}

@@ -1,0 +1,111 @@
+.terminal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.46);
+  box-shadow: 0 18px 50px -34px rgba(15, 23, 42, 0.28);
+  backdrop-filter: blur(22px);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 8px;
+  flex: 0 0 auto;
+
+  :global(.ant-typography) {
+    color: #475569;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}
+
+.pulse {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+
+  &::before,
+  span {
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: #2563eb;
+    content: "";
+  }
+
+  &::before {
+    opacity: 0.45;
+    animation: pulse 1.4s ease-out infinite;
+  }
+}
+
+.message {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.05);
+  font-family: "JetBrains Mono", Consolas, monospace;
+
+  :global(.ant-typography) {
+    color: #475569;
+    font-family: inherit;
+    font-size: 11px;
+  }
+}
+
+.prefix {
+  flex: 0 0 auto;
+  color: #94a3b8 !important;
+  font-weight: 800;
+}
+
+.chips {
+  flex: 0 0 auto;
+}
+
+.chip {
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+.prefix,
+.message_span {
+  color: #475569;
+  font-family: inherit;
+  font-size: 11px;
+}

@@ -1,0 +1,43 @@
+.gridLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(125, 156, 199, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 156, 199, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at center, black 0%, black 45%, transparent 78%);
+}
+
+.spotlight {
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  filter: blur(64px);
+  pointer-events: none;
+}
+
+.spotlightOne {
+  top: -18%;
+  left: 3%;
+  width: 820px;
+  height: 820px;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.22) 0%, transparent 62%);
+}
+
+.spotlightTwo {
+  right: 2%;
+  bottom: 4%;
+  width: 920px;
+  height: 920px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.22) 0%, transparent 62%);
+}
+
+.spotlightThree {
+  top: 28%;
+  left: 42%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, rgba(125, 156, 199, 0.18) 0%, transparent 58%);
+}

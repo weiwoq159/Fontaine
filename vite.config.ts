@@ -14,7 +14,7 @@ export default defineConfig({
       include: [/\.[tj]sx?$/],
       imports: [
         "react",
-        "react-router-dom",
+        "react-router",
         {
           ahooks: [
             "useRequest",
@@ -56,6 +56,7 @@ export default defineConfig({
       "@core": resolvePath("./src/core"),
       "@launcher": resolvePath("./src/launcher"),
       "@workshop": resolvePath("./src/workshop"),
+      "@assets": resolvePath("./src/assets"),
     },
   },
 });

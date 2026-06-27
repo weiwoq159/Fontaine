@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+
+  height: 100%;
+  padding: 0 20px;
+
+  box-shadow: 0 10px 10px rgba(15, 23, 42, 0.03);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.brand {
+  height: 100%;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+
+  color: #ffffff;
+  background: #0f172a;
+  border-radius: 12px;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 14px 32px -22px rgba(15, 23, 42, 0.5);
+}
+
+.brandName,
+.brandSub {
+  line-height: 1;
+}
+
+.brandName {
+  margin-bottom: 4px;
+
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.brandSub {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.settingsBtn {
+  margin-right: 8px;
+}

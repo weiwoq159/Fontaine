@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: Aptos, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,
+body,
+#root,
+.ant-app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.primaryButton {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  box-shadow: 0 16px 26px -18px rgba(37, 99, 235, 0.72);
+  height: 36px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 900;
+  transition: 0.22s ease;
+
+  &:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, #1d4ed8, #0284c7) !important;
+    transform: translateY(-1px);
+  }
+}
