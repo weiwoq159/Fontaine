@@ -1,6 +1,7 @@
 import type { RouteObject } from "react-router";
 import { WorkshopLayout } from "./layout/WorkshopLayout";
 import { HomePage } from "./features/home/home";
+import { CatalogPage } from "./features/catalog/catalog";
 // import { getProductMeta } from "@core/app-meta";
 
 // const workshopTone = getProductMeta("workshop").tone;
@@ -14,8 +15,8 @@ export const workshopRoutes: RouteObject[] = [
         element: <HomePage />,
       },
       {
-        path: "agent",
-        element: <>123123</>,
+        path: "catalog",
+        element: <CatalogPage />,
       },
     ],
   },

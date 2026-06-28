@@ -9,9 +9,3 @@ export interface HeroSummaryItem {
 }
 
 export type DashboardTool = Pick<ToolManifest, "appKey" | "name" | "description" | "status" | "iconKey">;
-
-export interface StatItem {
-  label: string;
-  value: number | string;
-  desc: string;
-}

@@ -1,0 +1,68 @@
+.categoryStrip {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 16px;
+}
+
+.categoryCard {
+  min-height: 124px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.5);
+  text-align: left;
+  white-space: normal;
+  transition: 0.22s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.82);
+  }
+}
+
+.categoryCardInner {
+  padding: 14px;
+}
+
+.categoryTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.categoryIcon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  color: #2563eb;
+  background: rgba(255, 255, 255, 0.78);
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.categoryNum {
+  color: #0f3f7c;
+  font-size: 20px;
+  font-weight: 950;
+}
+
+.categoryName {
+  display: block;
+  margin-top: 10px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.categoryDesc {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.45;
+}

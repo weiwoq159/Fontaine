@@ -1,0 +1,26 @@
+.statCard {
+  padding: 14px;
+  border-radius: 20px;
+
+  span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  strong {
+    display: block;
+    margin-top: 7px;
+    color: #0f3f7c;
+    font-size: 26px;
+    font-weight: 950;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    margin: 2px 0 0;
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 700;
+  }
+}

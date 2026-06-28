@@ -1,0 +1,168 @@
+.appCard {
+  min-height: 204px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.54);
+  transition: 0.24s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 18px 38px -28px rgba(15, 23, 42, 0.34);
+  }
+}
+
+.appCardDisabled {
+  opacity: 0.66;
+
+  &:hover {
+    transform: none;
+    background: rgba(255, 255, 255, 0.54);
+    box-shadow: none;
+  }
+}
+
+.appCardHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.appMain {
+  min-width: 0;
+  display: flex;
+  gap: 11px;
+}
+
+.appIcon {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  color: #2563eb;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.appName {
+  max-width: 190px;
+  margin: 0;
+  overflow: hidden;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 950;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.appType {
+  margin: 3px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.agentSwitch {
+  position: relative;
+  width: 34px;
+  height: 19px;
+  flex: 0 0 34px;
+  border-radius: 999px;
+  background: #cbd5e1;
+
+  &::after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 13px;
+    height: 13px;
+    border-radius: 999px;
+    background: #fff;
+    content: "";
+  }
+
+  &.enabled {
+    background: #2563eb;
+
+    &::after {
+      right: 3px;
+      left: auto;
+    }
+  }
+}
+
+.enabled {
+  background: #2563eb;
+}
+
+.appDesc {
+  min-height: 38px;
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.tagRow,
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tagList :global(.ant-tag) {
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 0;
+  color: #64748b;
+  background: rgba(241, 245, 249, 0.78);
+  font-size: 10px;
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.tagRow :global(.ant-tag) {
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 0;
+  font-size: 10px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.appMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 850;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.appActions {
+  display: flex;
+  justify-content: flex-end;
+}

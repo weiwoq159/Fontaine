@@ -1,0 +1,11 @@
+.appGrid,
+.skeletonGrid {
+  position: relative;
+  z-index: 2;
+}
+
+.skeletonCard {
+  width: 100% !important;
+  height: 204px !important;
+  border-radius: 22px !important;
+}

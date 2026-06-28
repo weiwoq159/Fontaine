@@ -1,0 +1,102 @@
+.hero {
+  border-radius: 28px;
+  padding: 22px;
+  background:
+    radial-gradient(circle at 86% 18%, rgba(56, 189, 248, 0.2), transparent 35%),
+    radial-gradient(circle at 46% 110%, rgba(129, 140, 248, 0.14), transparent 42%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(219, 234, 254, 0.5));
+}
+
+.heroBody {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 22px;
+  align-items: stretch;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 12px;
+  padding-left: 0;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+  color: #0e7490;
+  background: rgba(255, 255, 255, 0.62);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+
+  &::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #38bdf8;
+    box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.14);
+    content: "";
+  }
+}
+
+.title {
+  margin: 12px 0 0;
+  color: transparent;
+  background: linear-gradient(110deg, #0f3f7c 0%, #2457bd 42%, #1e789b 74%, #5847b8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: 34px;
+  font-weight: 750;
+  line-height: 1.08;
+  letter-spacing: 0.05em;
+}
+
+.desc {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.heroPanel {
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.56);
+  box-shadow: 0 18px 38px -30px rgba(15, 23, 42, 0.32);
+}
+.actions {
+  margin-top: 14px;
+}
+.miniRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 850;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  strong {
+    color: #0f3f7c;
+    font-size: 18px;
+    font-weight: 950;
+  }
+}
+
+@media (max-width: 1180px) {
+  .heroBody {
+    grid-template-columns: 1fr;
+  }
+}
